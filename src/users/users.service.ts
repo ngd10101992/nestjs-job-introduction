@@ -34,8 +34,8 @@ export class UsersService {
     return this.userModel.findOne({ _id: id })
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`
+  update(updateUserDto: UpdateUserDto) {
+    return this.userModel.updateOne({ _id: updateUserDto._id }, { ...updateUserDto })
   }
 
   remove(id: number) {
